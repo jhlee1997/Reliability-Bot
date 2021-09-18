@@ -1,0 +1,5 @@
+python-telegram-bot==8.1.1
+pyspellchecker
+textstat
+bs4
+requests_html
