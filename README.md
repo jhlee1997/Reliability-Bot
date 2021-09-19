@@ -4,7 +4,7 @@
 
 Reliability Bot is created by Aiken Wong, Bryan Kwok, Chow En Rong, Lee Jae Ho, and Ryan Kwok.
 
-Our solution has won the **Semi-Finalist** award in **Build On, Singapore 2020** hackathon, organized by **AWS**.
+Our solution has won the [**Semi-Finalist**](images/Certificate.pdf) award in **Build On, Singapore 2020** hackathon, organized by **AWS**.
 
 To read our codebase, [here](https://github.com/First-Freshest-Freshies/build-on-telegram-bot)!
 
@@ -28,7 +28,7 @@ The **Build On competition** is a pan-ASEAN coding competition organised by **AW
 
 With **fake news** and the **spread of misinformation** as one of the defining issues of our time, **incorrect, misleading or false advice** can travel around the world before anyone has a chance to correct it. From selling fake coronavirus cures online to a cyberattack on hospitals’ critical information systems, criminals are exploiting the **COVID-19 crisis**.
 
-How can we help to curb **misinformation** & make tools smarter to **combat future infodemics**?
+How can we help to curb **misinformation** and make tools smarter to **combat future infodemics**?
 
 ### Our Solution
 
@@ -82,7 +82,7 @@ To demonstrate how this would work, we have used AWS Comprehend on a real text m
 
 The web scraper is a Python script that takes the user input and inserts it into a **Google search query**. Since queries are done with keywords not a paragraph, AWS Comprehend would be used to **extract keywords** from the text before sending it into a google. This results in more accurate results with less “noise” for the Google algorithm.
 
-As the Google search results page is dynamic, we will use a Python module ‘requests_html’ to get and
+As the Google search results page is dynamic, we will use a Python module ‘requests\_html’ to get and
 fully render the website’s HTML via execution of its JavaScript code. From there, we parse the HTML
 object with another module **‘BeautifulSoup’** in order to access individual HTML tags and their text content.
 
@@ -128,7 +128,7 @@ In addition to the reply, we would also share **one or two links** taken from ou
 1. Since **Telegram** is the front-end application that the user would be accessing our solution from, AWS API Gateway would help to bridge the users to the process via a webhook.
 2. Executing a command in Telegram would trigger the Python script in **AWS Lambda**. From here, a few processes would be initiated.
 3. Firstly, another Python script would be run to execute the **literary analysis** of the text provided. This returns a score to the main script.
-4. Secondly, *8AWS Comprehend** would be triggered to analyse the text’s sentiments. Similarly, these scores would be sent back to the main code for computation. It will also be used to extract keywords for web scraping below.
+4. Secondly, **AWS Comprehend** would be triggered to analyse the text’s sentiments. Similarly, these scores would be sent back to the main code for computation. It will also be used to extract keywords for web scraping below.
 5. Next, the script for the execution of the **Google search** would be triggered. This includes the query and web scraping of the result site. Results of the web scraping would be sent to AWS SageMaker.
 6. A pre-trained machine learning model running on **AWS SageMaker** would then determine the relevance score by comparing the search results with the original text.
 7. The main script would then collate all the **scores**. The three main scores (literacy, sentiment, and corroboration), along with the original text, would be sent to **AWS DynamoDB** for logging and possibly future development.
